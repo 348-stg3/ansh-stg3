@@ -50,11 +50,21 @@ export async function fetchBooks(filters = {}) {
   const queryString = params.toString();
   const url = queryString ? `${API_BASE}/books?${queryString}` : `${API_BASE}/books`;
   
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error('Failed to fetch books');
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(text || `HTTP ${response.status}: Failed to fetch books`);
+    }
+    const text = await response.text();
+    if (!text) {
+      return []; // Empty response, return empty array
+    }
+    return JSON.parse(text);
+  } catch (error) {
+    console.error('fetchBooks error:', error, 'URL:', url);
+    throw error;
   }
-  return response.json();
 }
 
 /**
