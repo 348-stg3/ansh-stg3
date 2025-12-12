@@ -2,7 +2,14 @@
  * API service for interacting with the backend
  */
 
-const API_BASE = '/api';
+// In production, use the VITE_API_URL env variable; in dev, use relative path (Vite proxy handles it)
+const API_BASE = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api` 
+  : '/api';
+
+const AUDIO_BASE = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/audio` 
+  : '/audio';
 
 /**
  * Fetch all books with optional filters
@@ -112,6 +119,13 @@ export async function getSpeakerStats(bookId) {
  */
 export function getAudioUrl(bookId) {
   return `${API_BASE}/books/${bookId}/audio`;
+}
+
+/**
+ * Get direct audio file URL (for streaming)
+ */
+export function getAudioFileUrl(filename) {
+  return `${AUDIO_BASE}/${filename}`;
 }
 
 /**

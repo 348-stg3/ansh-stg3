@@ -60,6 +60,36 @@ Open http://localhost:3000
 - `Space` - Play/Pause
 - `←` `→` - Previous/Next sentence
 
+## Deployment
+
+### Backend (Railway)
+
+1. Create a new project on [Railway](https://railway.app/)
+2. Connect your GitHub repo and select the `backend` folder as root
+3. Add a MongoDB service (or use MongoDB Atlas)
+4. Set environment variables:
+   - `MONGO_URI` - Your MongoDB connection string
+   - `MONGO_DB_NAME` - Database name (default: `audiobooks_db`)
+   - `FRONTEND_URL` - Your Vercel frontend URL (e.g., `https://your-app.vercel.app`)
+5. Deploy - Railway will auto-detect Node.js and use the config
+
+### Frontend (Vercel)
+
+1. Create a new project on [Vercel](https://vercel.com/)
+2. Connect your GitHub repo and set `frontend` as root directory
+3. Set environment variable:
+   - `VITE_API_URL` - Your Railway backend URL (e.g., `https://your-app.up.railway.app`)
+4. Deploy
+
+### Environment Variables Summary
+
+| Service | Variable | Description |
+|---------|----------|-------------|
+| Railway | `MONGO_URI` | MongoDB connection string |
+| Railway | `MONGO_DB_NAME` | Database name |
+| Railway | `FRONTEND_URL` | Vercel URL (for CORS) |
+| Vercel | `VITE_API_URL` | Railway backend URL |
+
 ## License
 
 MIT - CS348 Course Project
