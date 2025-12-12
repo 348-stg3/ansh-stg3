@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.egg-info/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.*
+
+# Build outputs
+dist/
+build/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Uploads
+backend/uploads/*.pdf
+backend/uploads/*.wav
+backend/uploads/*.mp3
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Coverage
+coverage/
+.nyc_output/
+htmlcov/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+
+# Python
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.pytest_cache/
+.coverage
+.cache
+
+# Audio files (large binaries)
+*.wav
+*.mp3
+*.m4a
+*.flac
+
+# Excluded folders
+iphone-app/
+story-sage/
+
+# Ignore all markdown files except README and SETUP
+*.md
+!README.md
+!SETUP.md

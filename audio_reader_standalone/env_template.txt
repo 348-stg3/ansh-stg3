@@ -1,0 +1,17 @@
+# API Keys Template
+# Copy this file to .env and add your actual keys
+# Never commit your actual .env file to git!
+
+# Gemini API Key (get from: https://aistudio.google.com/app/apikey)
+GOOGLE_API_KEY=your_gemini_api_key_here
+
+# Cartesia API Key (get from: https://play.cartesia.ai/console)
+CARTESIA_API_KEY=your_cartesia_api_key_here
+
+# MongoDB Configuration
+MONGO_URI=mongodb://localhost:27017/
+MONGO_DB_NAME=audiobooks_db
+
+# Logging Level (DEBUG, INFO, WARNING, ERROR)
+LOG_LEVEL=INFO
+

@@ -1,0 +1,7 @@
+# MongoDB Integration Requirements
+pymongo>=4.6.0
+motor>=3.3.2  # Async MongoDB driver
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+

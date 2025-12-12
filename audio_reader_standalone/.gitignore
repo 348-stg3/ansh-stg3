@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment Variables & API Keys (IMPORTANT!)
+.env
+.env.local
+.env.*.local
+
+# Output files (Generated audio and data)
+output/
+*.wav
+temp/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vs/
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.log
+
+# PDF inputs (optional - uncomment if PDFs shouldn't be in git)
+# *.pdf
+
+# MongoDB data (if running locally)
+data/
+mongodb_data/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
