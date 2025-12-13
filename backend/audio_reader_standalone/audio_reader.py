@@ -1,6 +1,7 @@
 import os
 import PyPDF2
-import google.generativeai as genai
+# Use pure Python REST client instead of google.generativeai (avoids gRPC/C++ dependency)
+import gemini_rest as genai
 from cartesia import Cartesia
 from typing import Dict, List, Optional, Callable, Union
 import json
