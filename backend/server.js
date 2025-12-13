@@ -102,18 +102,24 @@ function getMongoClient() {
 }
 
 // CORS configuration for production
-const allowedOrigins = [
-  'https://ansh-stg3.vercel.app',
-  'http://localhost:3000'
-];
-
-// Add FRONTEND_URL env var if set
-if (process.env.FRONTEND_URL) {
-  allowedOrigins.push(process.env.FRONTEND_URL);
-}
-
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    // Allow localhost for development
+    if (origin.includes('localhost')) return callback(null, true);
+    
+    // Allow all Vercel preview and production URLs
+    if (origin.includes('vercel.app')) return callback(null, true);
+    
+    // Allow custom FRONTEND_URL if set
+    if (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL) {
+      return callback(null, true);
+    }
+    
+    callback(null, true); // Allow all origins for now
+  },
   credentials: true
 };
 

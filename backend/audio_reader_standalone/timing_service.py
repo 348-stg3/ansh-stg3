@@ -45,8 +45,8 @@ class TimingService:
         self.timings_collection = self.db.segment_timings
         self.books_collection = self.db.books
         
-        # Create indexes for efficient querying
-        self._create_indexes()
+        # Skip index creation to avoid disk space issues on free tier
+        # Indexes are created by the Node.js backend on startup instead
         
         logger.info(f"✅ Connected to MongoDB: {self.db_name}")
         logger.info(f"📊 Using collection: segment_timings")
